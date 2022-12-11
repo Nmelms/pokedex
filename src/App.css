@@ -36,3 +36,25 @@
     transform: rotate(360deg);
   }
 }
+ul {
+  list-style: none;
+}
+.iconBtn {
+  background-color: transparent;
+  border: none;
+}
+.hover:hover {
+  cursor: pointer;
+}
+
+.pokeball-bg {
+  position: absolute;
+  top: -40px;
+  right: -62px;
+  z-index: -5;
+  transform: scale(1.5);
+  fill: lightgrey;
+}
+.title {
+  font-size: clamp(30px, 10vw, 50px);
+}
