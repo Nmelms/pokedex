@@ -1,21 +1,30 @@
 import React, { useState, useEffect } from "react";
+import SearchBox from "./SearchBox.js";
 import { ReactComponent as Pokeball } from "../assets/Pokeball.svg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft, faBars } from "@fortawesome/free-solid-svg-icons";
-
+import { useQuery, gql } from "@apollo/client";
+import { gqlQuery } from "../GraphQL/Queries.js";
 export default function Pokemon() {
   const [pokemon, setPokemon] = useState(null);
 
+  const gqlVariables = {
+    limit: 151,
+    offset: 0,
+  };
   useEffect(() => {
-    fetch("https://pokeapi.co/api/v2/pokemon?limit=151")
+    fetch("https://graphql-pokeapi.graphcdn.app/", {
+      credentials: "omit",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        query: gqlQuery,
+        variables: gqlVariables,
+      }),
+      method: "POST",
+    })
       .then((res) => res.json())
-      .then((data) => {
-        setPokemon(data);
-        console.log(data);
-      });
-  }, []);
-
-  console.log(pokemon);
+      .then((res) => setPokemon(res.data.pokemons));
+  });
 
   return (
     <div className="pokemon">
