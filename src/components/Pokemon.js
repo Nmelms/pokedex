@@ -1,58 +1,48 @@
-import React, { useState, useEffect } from "react";
-import SearchBox from "./SearchBox.js";
-import { ReactComponent as Pokeball } from "../assets/Pokeball.svg";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowLeft, faBars } from "@fortawesome/free-solid-svg-icons";
+import { typeFromAST } from "graphql";
+import React, { useEffect, useState } from "react";
 
-export default function Pokemon() {
-  const [pokemon, setPokemon] = useState(null);
+export default function Pokemon({ name, img, types }) {
+  const [color, setColor] = useState("");
 
   useEffect(() => {
-    fetch("https://pokeapi.co/api/v2/pokemon/?limit=151")
-      .then((res) => res.json())
-      .then((data) => {
-        setPokemon(data);
-        console.log(data);
-      });
-
-    // fetch("https://pokeapi.co/api/v2/pokemon/?limit=151")
-    //   .then((response) => {
-    //     const responseJson = response.json();
-    //     const data = await responseJson
-    //   })
-    //   .then(async (data) => {
-    //     const pokemons = data.results;
-    //     for (const pokemon of pokemons) {
-    //       pokemon.data = await fetch(pokemon.url).then((res) => res.json());
-    //       setPokemon(pokemons);
-    //     }
-
-    //     console.log(pokemons);
-    //   });
-  }, []);
+    if (types[0].type.name === "grass") {
+      setColor("green");
+    } else if (types[0].type.name === "fire") {
+      setColor("red");
+    } else if (types[0].type.name === "water") {
+      setColor("blue");
+    } else if (types[0].type.name === "ground") {
+      setColor("brown");
+    } else if (types[0].type.name === "bug") {
+      setColor("orange");
+    } else if (types[0].type.name === "psychic") {
+      setColor("purple");
+    } else if (
+      types[0].type.name === "rock" ||
+      types[0].type.name === "fighting"
+    ) {
+      setColor("gray");
+    } else if (types[0].type.name === "electric") {
+      setColor("yellow");
+    } else if (types[0].type.name === "ghost") {
+      setColor("black");
+    } else {
+      setColor("gray");
+    }
+  }, [types]);
 
   return (
-    <div className="pokemon">
-      <Pokeball className="pokeball-bg" />
-      <nav>
-        <ul className="d-flex justify-content-between mt-5 pl-0 px-4">
-          <li>
-            <button className="iconBtn hover" aria-label="back">
-              <FontAwesomeIcon size="2xl" icon={faArrowLeft} />
-            </button>
-          </li>
-          <li>
-            <button className="iconBtn" aria-label="menu">
-              <FontAwesomeIcon size="2xl" icon={faBars} />
-            </button>
-          </li>
-        </ul>
-      </nav>
-
-      <section className="m-3">
-        <h1 className="title">PokeDex</h1>
-        {pokemon && <p>{pokemon.results[0].name}</p>}
-      </section>
+    <div
+      style={{ backgroundColor: color, filter: "brightness(50%)" }}
+      className="col-6 d-flex pokeCard text-white"
+    >
+      <div className="cardStats mt-4 p-3 ">
+        <h1>{name}</h1>
+        {types.map((type) => {
+          return <h3 className="type">{type.type.name}</h3>;
+        })}
+      </div>
+      <img className="pokemonSprite" src={img} />
     </div>
   );
 }

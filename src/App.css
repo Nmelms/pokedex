@@ -58,3 +58,47 @@ ul {
 .title {
   font-size: clamp(30px, 10vw, 50px);
 }
+.pokemonList {
+  display: flex;
+  flex-wrap: wrap;
+}
+.pokemon {
+  display: flex;
+}
+.pokeCard {
+  height: 150px;
+  border: 2px solid black;
+}
+.pokemonSprite {
+  height: 100%;
+  width: 100%;
+  align-self: end;
+  margin-left: auto;
+  margin-right: 0;
+  padding: 0.5rem;
+}
+.cardStats {
+  overflow-x: visible;
+}
+.cardStats h1 {
+  font-size: 1.5rem;
+}
+.cardStats h3 {
+  font-size: 1rem;
+}
+.type {
+  position: relative;
+  border: 2px solid red;
+  text-align: center;
+  border-radius: 50px;
+  filter: brightness(100%) !important;
+}
+/* .type::after {
+  content: "";
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  background-color: rgba(0, 0, 0, -1);
+} */
