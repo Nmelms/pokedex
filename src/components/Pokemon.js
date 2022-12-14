@@ -3,28 +3,33 @@ import SearchBox from "./SearchBox.js";
 import { ReactComponent as Pokeball } from "../assets/Pokeball.svg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft, faBars } from "@fortawesome/free-solid-svg-icons";
-import { useQuery, gql } from "@apollo/client";
-import { gqlQuery } from "../GraphQL/Queries.js";
+
 export default function Pokemon() {
   const [pokemon, setPokemon] = useState(null);
 
-  const gqlVariables = {
-    limit: 151,
-    offset: 0,
-  };
   useEffect(() => {
-    fetch("https://graphql-pokeapi.graphcdn.app/", {
-      credentials: "omit",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        query: gqlQuery,
-        variables: gqlVariables,
-      }),
-      method: "POST",
-    })
+    fetch("https://pokeapi.co/api/v2/pokemon/?limit=151")
       .then((res) => res.json())
-      .then((res) => setPokemon(res.data.pokemons));
-  });
+      .then((data) => {
+        setPokemon(data);
+        console.log(data);
+      });
+
+    // fetch("https://pokeapi.co/api/v2/pokemon/?limit=151")
+    //   .then((response) => {
+    //     const responseJson = response.json();
+    //     const data = await responseJson
+    //   })
+    //   .then(async (data) => {
+    //     const pokemons = data.results;
+    //     for (const pokemon of pokemons) {
+    //       pokemon.data = await fetch(pokemon.url).then((res) => res.json());
+    //       setPokemon(pokemons);
+    //     }
+
+    //     console.log(pokemons);
+    //   });
+  }, []);
 
   return (
     <div className="pokemon">
@@ -46,7 +51,7 @@ export default function Pokemon() {
 
       <section className="m-3">
         <h1 className="title">PokeDex</h1>
-        {pokemon && <h1>{pokemon.results[0].name}</h1>}
+        {pokemon && <p>{pokemon.results[0].name}</p>}
       </section>
     </div>
   );
