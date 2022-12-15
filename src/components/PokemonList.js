@@ -55,7 +55,7 @@ export default function PokemonList() {
         className="container-fluid d-flex
       justify-content-center"
       >
-        <div className=" w-100 d-flex flex-wrap row">
+        <div className="pokeContainer w-100 d-flex flex-wrap row">
           {loading && <h1>loading.....</h1>}
           {pokemons &&
             pokemons.map((pokemon) => {

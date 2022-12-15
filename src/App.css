@@ -71,6 +71,9 @@ ul {
   height: 150px;
   border-radius: 15px;
 }
+.pokeContainer {
+  max-width: 1400px;
+}
 .pokemonSprite {
   position: absolute;
   bottom: 0.25rem;
@@ -79,6 +82,7 @@ ul {
   width: 60%;
   height: fit-content;
   max-height: 120px;
+  min-height: 100px;
 }
 .cardStats {
   overflow-x: visible;

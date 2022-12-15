@@ -45,7 +45,7 @@ export default function Pokemon({ name, img, types }) {
   }, [types]);
 
   return (
-    <div className="col-6 p-1">
+    <div className="col-6 col-sm-4 col-md-3 col-lg-2 p-1">
       <div
         style={{ backgroundColor: color }}
         className="d-flex pokeCard text-white "
