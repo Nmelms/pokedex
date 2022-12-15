@@ -51,7 +51,10 @@ export default function PokemonList() {
         console.log(pokemons[0].data.types)}
       <h1 className="title">PokeDex </h1>
 
-      <div className="container-fluid">
+      <div
+        className="container-fluid d-flex
+      justify-content-center"
+      >
         <div className=" w-100 d-flex flex-wrap row">
           {loading && <h1>loading.....</h1>}
           {pokemons &&
