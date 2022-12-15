@@ -59,12 +59,18 @@ export default function PokemonList() {
           {loading && <h1>loading.....</h1>}
           {pokemons &&
             pokemons.map((pokemon) => {
+              //capitalize first letter of pokemon name
+              let split = pokemon.name.split("");
+              let first = split[0].toUpperCase();
+              split[0] = first;
+              let name = split.join("");
+
               return (
                 <Pokemon
                   types={pokemon.data.types}
                   img={pokemon.data.sprites.other.dream_world.front_default}
                   key={pokemon.data.id}
-                  name={pokemon.name}
+                  name={name}
                 />
               );
             })}

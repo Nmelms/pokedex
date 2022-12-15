@@ -33,7 +33,7 @@ export default function Pokemon({ name, img, types }) {
       setColor("#C12239");
     } else if (types[0].type.name === "flying") {
       setColor("#A891EC");
-    } else if (types[0].type.name === "posion") {
+    } else if (types[0].type.name === "poison") {
       setColor("#A43E9E");
     } else if (types[0].type.name === "ground") {
       setColor("#DEC16B");
