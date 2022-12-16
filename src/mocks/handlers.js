@@ -7,7 +7,34 @@ export const handlers = [
     return res(
       ctx.status(200),
       ctx.json({
-        results: [{ name: "bulbasuar" }],
+        results: [
+          {
+            name: "bulbsaur",
+            url: "www.nick.com",
+          },
+        ],
+      })
+    );
+  }),
+
+  rest.get("www.nick.com", (req, res, ctx) => {
+    return res(
+      ctx.status(200),
+      ctx.json({
+        sprites: {
+          other: {
+            dream_world: {
+              font_default: "url",
+            },
+          },
+        },
+        types: [
+          {
+            type: {
+              name: "grass",
+            },
+          },
+        ],
       })
     );
   }),

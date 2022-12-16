@@ -16,6 +16,7 @@ export default function PokemonList() {
         return responseJson;
       })
       .then(async (data) => {
+        console.log(data);
         const pokemons = data.results;
         for (const pokemon of pokemons) {
           pokemon.data = await fetch(pokemon.url).then((res) => res.json());
@@ -30,10 +31,10 @@ export default function PokemonList() {
   }, []);
 
   return (
-    <div className="pokemonList">
+    <div className="pokemonList ">
       <Pokeball className="pokeball-bg" />
       <nav>
-        <ul className="d-flex justify-content-between mt-5 pl-0 px-4">
+        <ul className="d-flex justify-content-between mt-5 pl-0 px-4 vw-100">
           <li>
             <button className="iconBtn hover" aria-label="back">
               <FontAwesomeIcon size="2xl" icon={faArrowLeft} />
@@ -46,17 +47,14 @@ export default function PokemonList() {
           </li>
         </ul>
       </nav>
-      {pokemons &&
-        // prettier-ignore
-        console.log(pokemons[0].data.types)}
-      <h1 className="title">PokeDex </h1>
+
+      <h1 className="title ">PokeDex </h1>
 
       <div
         className="container-fluid d-flex
-      justify-content-center"
+      justify-content-center pt-5"
       >
         <div className="pokeContainer w-100 d-flex flex-wrap row">
-          {loading && <h1>loading.....</h1>}
           {pokemons &&
             pokemons.map((pokemon) => {
               //capitalize first letter of pokemon name

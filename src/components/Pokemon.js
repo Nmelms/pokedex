@@ -45,15 +45,19 @@ export default function Pokemon({ name, img, types }) {
   }, [types]);
 
   return (
-    <div className="col-6 col-sm-4 col-md-3 col-lg-2 p-1">
+    <div className="col-6 col-sm-4 col-md-3 col-lg-2 p-2">
       <div
         style={{ backgroundColor: color }}
         className="d-flex pokeCard text-white "
       >
         <div className="cardStats mt-2 ps-2 pt-2">
           <h1>{name}</h1>
-          {types.map((type) => {
-            return <h3 className="type px-2 py-1">{type.type.name}</h3>;
+          {types.map((type, index) => {
+            return (
+              <h3 key={index} className="type px-2 py-1">
+                {type.type.name}
+              </h3>
+            );
           })}
         </div>
         <div className="d-flex justify-content-center align-items-center">
