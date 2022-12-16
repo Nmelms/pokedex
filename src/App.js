@@ -1,16 +1,24 @@
 import PokemonList from "./components/PokemonList";
-import {
-  ApolloClient,
-  InMemoryCache,
-  ApolloProvider,
-  HttpLink,
-  from,
-} from "@apollo/client";
+import Details from "./components/Details";
+import { useState, useEffect } from "react";
 import "./App.css";
-import { onError } from "@apollo/client/link/error";
 
 function App() {
-  return <PokemonList />;
+  const [view, setView] = useState("list");
+  const [selectedData, setSelectedData] = useState();
+
+  useEffect(() => {
+    console.log(selectedData);
+  }, [selectedData]);
+  return view === "list" ? (
+    <PokemonList
+      view={view}
+      setView={setView}
+      setSelectedData={setSelectedData}
+    />
+  ) : (
+    <Details data={selectedData} />
+  );
 }
 
 export default App;

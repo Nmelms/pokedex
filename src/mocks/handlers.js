@@ -10,14 +10,14 @@ export const handlers = [
         results: [
           {
             name: "bulbsaur",
-            url: "www.nick.com",
+            url: "www.fakeurl.com",
           },
         ],
       })
     );
   }),
 
-  rest.get("www.nick.com", (req, res, ctx) => {
+  rest.get("www.fakeurl.com", (req, res, ctx) => {
     return res(
       ctx.status(200),
       ctx.json({

@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from "react";
-import SearchBox from "./SearchBox.js";
 import Pokemon from "./Pokemon.js";
 import { ReactComponent as Pokeball } from "../assets/Pokeball.svg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft, faBars } from "@fortawesome/free-solid-svg-icons";
 
-export default function PokemonList() {
+export default function PokemonList({ view, setView, setSelectedData }) {
   const [pokemons, setPokemons] = useState(null);
   const [loading, setLoading] = useState(true);
 
@@ -55,6 +54,7 @@ export default function PokemonList() {
       justify-content-center pt-5"
       >
         <div className="pokeContainer w-100 d-flex flex-wrap row">
+          {loading && <h1>loading...</h1>}
           {pokemons &&
             pokemons.map((pokemon) => {
               //capitalize first letter of pokemon name
@@ -65,6 +65,9 @@ export default function PokemonList() {
 
               return (
                 <Pokemon
+                  setView={setView}
+                  data={pokemon}
+                  setSelectedData={setSelectedData}
                   types={pokemon.data.types}
                   img={pokemon.data.sprites.other.dream_world.front_default}
                   key={pokemon.data.id}

@@ -1,10 +1,16 @@
-import { typeFromAST } from "graphql";
+import { faStreetView } from "@fortawesome/free-solid-svg-icons";
 import React, { useEffect, useState } from "react";
 import { ReactComponent as Pokeball } from "../assets/Pokeball.svg";
 
-export default function Pokemon({ name, img, types }) {
+export default function Pokemon({
+  name,
+  img,
+  types,
+  setSelectedData,
+  data,
+  setView,
+}) {
   const [color, setColor] = useState("");
-  const [secondaryColor, setSecondaryColor] = useState("");
 
   useEffect(() => {
     if (types[0].type.name === "grass") {
@@ -44,9 +50,15 @@ export default function Pokemon({ name, img, types }) {
     }
   }, [types]);
 
+  const handleClick = () => {
+    setSelectedData(data);
+    setView("details");
+  };
+
   return (
     <div className="col-6 col-sm-4 col-md-3 col-lg-2 p-2">
       <div
+        onClick={() => handleClick()}
         style={{ backgroundColor: color }}
         className="d-flex pokeCard text-white "
       >
@@ -61,8 +73,8 @@ export default function Pokemon({ name, img, types }) {
           })}
         </div>
         <div className="d-flex justify-content-center align-items-center">
-          <img className="pokemonSprite" src={img} />
-          <Pokeball class="listBall" />
+          <img loading="lazy" className="pokemonSprite" src={img} />
+          <Pokeball className="listBall" />
         </div>
       </div>
     </div>
