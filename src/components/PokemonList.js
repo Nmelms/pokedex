@@ -3,6 +3,7 @@ import Pokemon from "./Pokemon.js";
 import { ReactComponent as Pokeball } from "../assets/Pokeball.svg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft, faBars } from "@fortawesome/free-solid-svg-icons";
+import capitalizeFirstletter from "../utils/capitalizeFirstletter.js";
 
 export default function PokemonList({ view, setView, setSelectedData }) {
   const [pokemons, setPokemons] = useState(null);
@@ -57,12 +58,6 @@ export default function PokemonList({ view, setView, setSelectedData }) {
           {loading && <h1>loading...</h1>}
           {pokemons &&
             pokemons.map((pokemon) => {
-              //capitalize first letter of pokemon name
-              let split = pokemon.name.split("");
-              let first = split[0].toUpperCase();
-              split[0] = first;
-              let name = split.join("");
-
               return (
                 <Pokemon
                   setView={setView}
@@ -71,7 +66,7 @@ export default function PokemonList({ view, setView, setSelectedData }) {
                   types={pokemon.data.types}
                   img={pokemon.data.sprites.other.dream_world.front_default}
                   key={pokemon.data.id}
-                  name={name}
+                  name={capitalizeFirstletter(pokemon.name)}
                 />
               );
             })}

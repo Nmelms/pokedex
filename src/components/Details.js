@@ -2,7 +2,9 @@ import React from "react";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { ReactComponent as Pokeball } from "../assets/Pokeball.svg";
+import capitalizeFirstletter from "../utils/capitalizeFirstletter.js";
 import returnColor from "../utils/returnColor";
+import capitalizeFirstLetter from "../utils/capitalizeFirstletter.js";
 
 export default function Details({ data, setView }) {
   const padNumber = (num) => {
@@ -29,7 +31,7 @@ export default function Details({ data, setView }) {
             icon={faArrowLeft}
             size="2xl"
           />
-          <h1 className="ps-4 mb-0">{data.name}</h1>
+          <h1 className="ps-4 mb-0">{capitalizeFirstLetter(data.name)}</h1>
           <p className="pokeNumber h-100 mb-0">#{padNumber(data.data.id)}</p>
         </nav>
         <Pokeball className="detailsBall" />
