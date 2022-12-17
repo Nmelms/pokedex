@@ -1,7 +1,9 @@
 .App {
   text-align: center;
 }
-
+body {
+  overflow: hidden;
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -123,12 +125,30 @@ ul {
   max-height: 120px;
   fill: rgba(255, 255, 255, 0.2);
 }
-/* .type::after {
-  content: "";
+.pokeNumber {
+  margin-right: 0;
+  margin-left: auto;
+  height: 100%;
+  font-size: 1.25rem;
+}
+.detailsNav {
+  height: fit-content;
+}
+.details {
+  height: 100vh;
+  color: white;
+}
+.detailsBall {
+  width: 70%;
+  margin: 0 auto;
+  height: fit-content;
+  align-self: flex-end;
+  fill: rgba(255, 255, 255, 0.2);
+}
+.details-image {
   position: absolute;
-  left: 0px;
-  top: 0px;
-  right: 0px;
-  bottom: 0px;
-  background-color: rgba(0, 0, 0, -1);
-} */
+  height: 200px;
+  top: -175px;
+  z-index: 10;
+  margin: 0 auto;
+}

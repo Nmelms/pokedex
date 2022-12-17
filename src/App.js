@@ -17,7 +17,7 @@ function App() {
       setSelectedData={setSelectedData}
     />
   ) : (
-    <Details data={selectedData} />
+    <Details setView={setView} data={selectedData} />
   );
 }
 
