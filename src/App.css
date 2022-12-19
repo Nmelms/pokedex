@@ -85,6 +85,7 @@ ul {
 }
 .pokeContainer {
   max-width: 1400px;
+  overflow-y: auto;
 }
 .pokemonSprite {
   position: absolute;
@@ -133,7 +134,9 @@ ul {
   height: fit-content;
 }
 .details {
+  overflow: hidden;
   height: 100vh;
+  max-height: 100vh;
   color: white;
 }
 .detailsBall {
@@ -146,7 +149,22 @@ ul {
 .details-image {
   position: absolute;
   height: 200px;
-  top: -175px;
+  top: -165px;
   z-index: 10;
   margin: 0 auto;
+}
+.details-type {
+  height: fit-content;
+  width: fit-content;
+}
+.details-type {
+  font-size: 1rem;
+}
+.details-nav {
+  height: fit-content;
+  display: flex;
+}
+.details-item p {
+  font-size: 0.75rem;
+  color: #666666;
 }
