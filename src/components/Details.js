@@ -79,7 +79,7 @@ export default function Details({ data, setView }) {
               <li className="">Evolution</li>
             </ul>
           </nav>
-          <div className="row w-100">
+          <div className="row w-100 mb-3">
             <div
               className="d-flex details-item flex-column align-items-center col-4 p-0 h-100 justify-content-between"
               style={{ color: "black" }}
@@ -96,7 +96,7 @@ export default function Details({ data, setView }) {
               <p>Weight</p>
             </div>
             <div
-              className="d-flex details-item flex-column align-items-center col-4 p-0 justify-content-between"
+              className="middle-item d-flex details-item flex-column align-items-center col-4 p-0 justify-content-between"
               style={{ color: "black" }}
             >
               <div>
@@ -117,7 +117,10 @@ export default function Details({ data, setView }) {
               <div>
                 {data.data.abilities.map((move) => {
                   return (
-                    <h5 className="m-0">
+                    <h5
+                      style={{ fontSize: "1rem", textAlign: "center" }}
+                      className="m-0"
+                    >
                       {capitalizeFirstLetter(move.ability.name)}
                     </h5>
                   );

@@ -167,4 +167,9 @@ ul {
 .details-item p {
   font-size: 0.75rem;
   color: #666666;
+  margin: 0;
+}
+.middle-item {
+  border-left: 1px solid gray;
+  border-right: 1px solid gray;
 }
