@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { ReactComponent as Pokeball } from "../assets/Pokeball.svg";
 import returnColor from "../utils/returnColor";
 
@@ -33,7 +33,12 @@ export default function Pokemon({
           })}
         </div>
         <div className="d-flex justify-content-center align-items-center">
-          <img loading="lazy" className="pokemonSprite" src={img} />
+          <img
+            loading="lazy"
+            className="pokemonSprite"
+            src={img}
+            alt="pokemon"
+          />
           <Pokeball className="listBall" />
         </div>
       </div>

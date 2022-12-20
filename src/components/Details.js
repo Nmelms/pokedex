@@ -18,10 +18,9 @@ export default function Details({ data, setView }) {
     fetch(`https://pokeapi.co/api/v2/pokemon-species/${data.data.id}/`)
       .then((res) => res.json())
       .then((data) => setText(data.flavor_text_entries[1].flavor_text));
+  }, [data.data.id]);
 
-    setColor(returnColor(data.data.types[0].type.name));
-  }, []);
-
+  setColor(returnColor(data.data.types[0].type.name));
   const padNumber = (num) => {
     if (num < 10) {
       return "00" + num;
@@ -62,6 +61,7 @@ export default function Details({ data, setView }) {
             <img
               className="details-image"
               src={data.data.sprites.other.dream_world.front_default}
+              alt="pokemon"
             />
             <div className="details-type d-flex mt-4">
               {data.data.types.map((type) => {
