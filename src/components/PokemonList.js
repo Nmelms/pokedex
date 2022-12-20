@@ -16,7 +16,6 @@ export default function PokemonList({ view, setView, setSelectedData }) {
         return responseJson;
       })
       .then(async (data) => {
-        console.log(data);
         const pokemons = data.results;
         for (const pokemon of pokemons) {
           pokemon.data = await fetch(pokemon.url).then((res) => res.json());
