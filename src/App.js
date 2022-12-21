@@ -10,10 +10,6 @@ function App() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    console.log(selectedData);
-  }, [selectedData]);
-
-  useEffect(() => {
     if (!pokemons) {
       fetch("https://pokeapi.co/api/v2/pokemon/?limit=151")
         .then((response) => {
