@@ -32,11 +32,6 @@ export default function Details({ data, setView }) {
     }
   };
 
-  const handleEvolutionClick = () => {
-    fetch("https://pokeapi.co/api/v2/evolution-chain/2/")
-      .then((res) => res.json())
-      .then((data) => console.log(data));
-  };
   return (
     <div
       style={{ backgroundColor: returnColor(data.data.types[0].type.name) }}
@@ -90,9 +85,7 @@ export default function Details({ data, setView }) {
                 style={{ color: returnColor(data.data.types[0].type.name) }}
               >
                 <li className="">About</li>
-                <li onClick={() => handleEvolutionClick()} className="">
-                  Evolution
-                </li>
+                <li className="">Evolution</li>
               </ul>
             </nav>
             <div className="row w-100 mb-3">

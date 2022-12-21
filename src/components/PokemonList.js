@@ -47,7 +47,7 @@ export default function PokemonList({
         <input
           onChange={(e) => handleInputChange(e)}
           value={search}
-          className="col-8 mt-4"
+          className="col-8 col-lg-4 mt-4"
           type="text"
           placeHolder="Search For A Pokemon"
         />
