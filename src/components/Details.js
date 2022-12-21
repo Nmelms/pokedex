@@ -32,6 +32,11 @@ export default function Details({ data, setView }) {
     }
   };
 
+  const handleEvolutionClick = () => {
+    fetch("https://pokeapi.co/api/v2/evolution-chain/2/")
+      .then((res) => res.json())
+      .then((data) => console.log(data));
+  };
   return (
     <div
       style={{ backgroundColor: returnColor(data.data.types[0].type.name) }}
@@ -44,10 +49,10 @@ export default function Details({ data, setView }) {
             icon={faArrowLeft}
             size="2xl"
           />
-          <h1 className="ps-4 mb-0 text-white">
+          <h1 className="ps-4 mb-0 text-white bold">
             {capitalizeFirstLetter(data.name)}
           </h1>
-          <p className="pokeNumber h-100 mb-0 text-white">
+          <p className="pokeNumber h-100 mb-0 text-white bold">
             #{padNumber(data.data.id)}
           </p>
         </nav>
@@ -69,7 +74,7 @@ export default function Details({ data, setView }) {
                 return (
                   <h4
                     style={{ backgroundColor: returnColor(type.type.name) }}
-                    className="m-3 py-1 px-3 rounded-pill details-type text-white"
+                    className="bold m-3 py-1 px-3 rounded-pill details-type text-white"
                   >
                     {capitalizeFirstLetter(type.type.name)}
                   </h4>
@@ -82,7 +87,9 @@ export default function Details({ data, setView }) {
                 style={{ color: returnColor(data.data.types[0].type.name) }}
               >
                 <li className="">About</li>
-                <li className="">Evolution</li>
+                <li onClick={() => handleEvolutionClick()} className="">
+                  Evolution
+                </li>
               </ul>
             </nav>
             <div className="row w-100 mb-3">
@@ -139,11 +146,14 @@ export default function Details({ data, setView }) {
           </div>
 
           <div className="details-stats col-12 d-flex flex-wrap">
-            <h3 className="col-12 text-center" style={{ color: color }}>
+            <h3 className="bold col-12 text-center" style={{ color: color }}>
               Base Stats
             </h3>
             <div className="d-flex w-100 stat-item">
-              <p style={{ color: color }} className="col-2 m-0 stat-item-name">
+              <p
+                style={{ color: color }}
+                className="col-2 m-0 stat-item-name bold"
+              >
                 HP
               </p>
               <p className="col-1 m-0 stat-item-num">
@@ -162,7 +172,7 @@ export default function Details({ data, setView }) {
               </div>
             </div>
             <div className="d-flex w-100 stat-item">
-              <p style={{ color: color }} className="stat-item-name">
+              <p style={{ color: color }} className="stat-item-name bold">
                 ATK
               </p>
               <p className="stat-item-num">{data.data.stats[1].base_stat}</p>
@@ -179,7 +189,10 @@ export default function Details({ data, setView }) {
               </div>
             </div>
             <div className="d-flex w-100 stat-item">
-              <p style={{ color: color }} className="col-2 m-0 stat-item-name">
+              <p
+                style={{ color: color }}
+                className="col-2 m-0 stat-item-name bold"
+              >
                 DEF
               </p>
               <p className="col-1 m-0 stat-item-num">
@@ -198,7 +211,10 @@ export default function Details({ data, setView }) {
               </div>
             </div>
             <div className="d-flex w-100 stat-item">
-              <p style={{ color: color }} className="col-2 m-0 stat-item-name">
+              <p
+                style={{ color: color }}
+                className="col-2 m-0 stat-item-name bold"
+              >
                 SATK
               </p>
               <p className="col-1 m-0 stat-item-num">
@@ -217,7 +233,10 @@ export default function Details({ data, setView }) {
               </div>
             </div>
             <div className="d-flex w-100 stat-item">
-              <p style={{ color: color }} className="col-2 m-0 stat-item-name">
+              <p
+                style={{ color: color }}
+                className="col-2 m-0 stat-item-name bold"
+              >
                 SDEF
               </p>
               <p className="col-1 m-0 stat-item-num">
@@ -236,7 +255,10 @@ export default function Details({ data, setView }) {
               </div>
             </div>
             <div className="d-flex w-100 stat-item">
-              <p style={{ color: color }} className="col-2 m-0 stat-item-name">
+              <p
+                style={{ color: color }}
+                className="col-2 m-0 stat-item-name bold"
+              >
                 SPD
               </p>
               <p className="col-1 m-0 stat-item-num">

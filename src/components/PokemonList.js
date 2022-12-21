@@ -1,34 +1,17 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Pokemon from "./Pokemon.js";
 import { ReactComponent as Pokeball } from "../assets/Pokeball.svg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft, faBars } from "@fortawesome/free-solid-svg-icons";
 import capitalizeFirstletter from "../utils/capitalizeFirstletter.js";
 
-export default function PokemonList({ view, setView, setSelectedData }) {
-  const [pokemons, setPokemons] = useState(null);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    fetch("https://pokeapi.co/api/v2/pokemon/?limit=151")
-      .then((response) => {
-        const responseJson = response.json();
-        return responseJson;
-      })
-      .then(async (data) => {
-        const pokemons = data.results;
-        for (const pokemon of pokemons) {
-          pokemon.data = await fetch(pokemon.url).then((res) => res.json());
-        }
-
-        setPokemons(pokemons);
-        setLoading(false);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  }, []);
-
+export default function PokemonList({
+  view,
+  setView,
+  setSelectedData,
+  pokemons,
+  loading,
+}) {
   return (
     <div className="pokemonList ">
       <Pokeball className="pokeball-bg" />

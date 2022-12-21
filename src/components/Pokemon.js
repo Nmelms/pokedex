@@ -23,7 +23,7 @@ export default function Pokemon({
         className="d-flex pokeCard text-white "
       >
         <div className="cardStats mt-2 ps-2 pt-2">
-          <h1>{name}</h1>
+          <h1 className="bold">{name}</h1>
           {types.map((type, index) => {
             return (
               <h3 key={index} className="type px-2 py-1">
