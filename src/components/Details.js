@@ -18,9 +18,10 @@ export default function Details({ data, setView }) {
     fetch(`https://pokeapi.co/api/v2/pokemon-species/${data.data.id}/`)
       .then((res) => res.json())
       .then((data) => setText(data.flavor_text_entries[1].flavor_text));
-  }, [data.data.id]);
 
-  setColor(returnColor(data.data.types[0].type.name));
+    setColor(returnColor(data.data.types[0].type.name));
+  }, [data.data.id, data.data.types]);
+
   const padNumber = (num) => {
     if (num < 10) {
       return "00" + num;
