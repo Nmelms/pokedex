@@ -141,6 +141,7 @@ ul {
 }
 .detailsNav {
   height: fit-content;
+  max-width: 1000px;
 }
 .details {
   padding: 1.5rem 0 0 0;
@@ -155,9 +156,12 @@ ul {
 .detailsBall {
   width: 70%;
   max-width: 300px;
+  position: absolute;
+  top: 50px;
+
   margin: 0 auto;
   height: fit-content;
-  align-self: flex-end;
+
   fill: rgba(255, 255, 255, 0.2);
 }
 .details-bottom-wrapper {

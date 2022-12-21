@@ -42,7 +42,10 @@ export default function Details({ data, setView }) {
       style={{ backgroundColor: returnColor(data.data.types[0].type.name) }}
       className="details container-fluid"
     >
-      <div style={{ height: "30%" }} className="row ">
+      <div
+        style={{ height: "30%" }}
+        className="row d-flex flex-column align-items-center "
+      >
         <nav className="col-12 d-flex px-4 pt-4 detailsNav align-items-center">
           <FontAwesomeIcon
             onClick={() => setView("list")}
