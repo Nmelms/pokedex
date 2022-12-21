@@ -20,11 +20,13 @@ export default function PokemonList({
   };
 
   useEffect(() => {
-    const result = pokemons.filter((pokemon) =>
-      pokemon.name.startsWith(search)
-    );
-    setFiltered(result);
-  }, [search]);
+    if (pokemons) {
+      const result = pokemons.filter((pokemon) =>
+        pokemon.name.startsWith(search)
+      );
+      setFiltered(result);
+    }
+  }, [search, pokemons]);
   return (
     <div className="pokemonList ">
       <Pokeball className="pokeball-bg" />
@@ -49,7 +51,7 @@ export default function PokemonList({
           value={search}
           className="col-8 col-lg-4 mt-4"
           type="text"
-          placeHolder="Search For A Pokemon"
+          placeholder="Search For A Pokemon"
         />
       </div>
 
