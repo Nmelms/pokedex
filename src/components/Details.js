@@ -38,7 +38,7 @@ export default function Details({ data, setView }) {
       className="details container-fluid"
     >
       <div
-        style={{ height: "30%" }}
+        style={{ height: "30%", minHeight: "225px" }}
         className="row d-flex flex-column align-items-center "
       >
         <nav className="col-12 d-flex px-4 pt-4 detailsNav align-items-center">
@@ -56,21 +56,19 @@ export default function Details({ data, setView }) {
         </nav>
         <Pokeball className="detailsBall" />
       </div>
-      <div
-        style={{ maxHeight: "70%", height: "68.5%" }}
-        className="row m-2 mb-2 rounded  bg-white detailsBottom position-relative "
-      >
+      <div className="row m-2 mb-2 rounded  bg-white detailsBottom position-relative ">
         <div className="details-bottom-wrapper">
-          <div className="col-12  d-flex flex-column align-items-center justify-content-between pt-5">
+          <div className="col-12  d-flex flex-column align-items-center justify-content-between">
             <img
               className="details-image"
               src={data.data.sprites.other.dream_world.front_default}
               alt="pokemon"
             />
             <div className="details-type d-flex mt-4">
-              {data.data.types.map((type) => {
+              {data.data.types.map((type, idx) => {
                 return (
                   <h4
+                    key={idx}
                     style={{ backgroundColor: returnColor(type.type.name) }}
                     className="bold m-3 py-1 px-3 rounded-pill details-type text-white"
                   >
@@ -90,12 +88,12 @@ export default function Details({ data, setView }) {
             </nav>
             <div className="row w-100 mb-3">
               <div
-                className="d-flex details-item flex-column align-items-center col-4 p-0 h-100 justify-content-between"
+                className="d-flex details-item flex-column align-items-center col-4 p-0 justify-content-between"
                 style={{ color: "black" }}
               >
                 <div>
                   <FontAwesomeIcon
-                    className="pe-1"
+                    className="pe-1 details-back-btn"
                     icon={faWeightScale}
                     size="2xl"
                   />
@@ -105,7 +103,7 @@ export default function Details({ data, setView }) {
                 <p>Weight</p>
               </div>
               <div
-                className="middle-item d-flex details-item flex-column align-items-center col-4 p-0 justify-content-between"
+                className="middle-item d-flex details-item flex-column align-items-center col-4 justify-content-between"
                 style={{ color: "black" }}
               >
                 <div>
@@ -124,9 +122,10 @@ export default function Details({ data, setView }) {
                 style={{ color: "black" }}
               >
                 <div>
-                  {data.data.abilities.map((move) => {
+                  {data.data.abilities.map((move, idx) => {
                     return (
                       <h5
+                        key={idx}
                         style={{ fontSize: "1rem", textAlign: "center" }}
                         className="m-0"
                       >
@@ -158,7 +157,7 @@ export default function Details({ data, setView }) {
               <div className="progress-wrapper col-9 p-2">
                 <ProgressBar
                   bgColor={color}
-                  animateOnRender="true"
+                  animateOnRender={true}
                   width="100%"
                   height="10px"
                   customLabel=" "
@@ -175,7 +174,7 @@ export default function Details({ data, setView }) {
               <div className="progress-wrapper">
                 <ProgressBar
                   bgColor={color}
-                  animateOnRender="true"
+                  animateOnRender={true}
                   width="100%"
                   height="10px"
                   customLabel=" "
@@ -197,7 +196,7 @@ export default function Details({ data, setView }) {
               <div className="progress-wrapper col-9 p-2">
                 <ProgressBar
                   bgColor={color}
-                  animateOnRender="true"
+                  animateOnRender={true}
                   width="100%"
                   height="10px"
                   customLabel=" "
@@ -219,7 +218,7 @@ export default function Details({ data, setView }) {
               <div className="progress-wrapper col-9 p-2">
                 <ProgressBar
                   bgColor={color}
-                  animateOnRender="true"
+                  animateOnRender={true}
                   width="100%"
                   height="10px"
                   customLabel=" "
@@ -241,7 +240,7 @@ export default function Details({ data, setView }) {
               <div className="progress-wrapper col-9 p-2">
                 <ProgressBar
                   bgColor={color}
-                  animateOnRender="true"
+                  animateOnRender={true}
                   width="100%"
                   height="10px"
                   customLabel=" "
@@ -263,7 +262,7 @@ export default function Details({ data, setView }) {
               <div className="progress-wrapper col-9 p-2">
                 <ProgressBar
                   bgColor={color}
-                  animateOnRender="true"
+                  animateOnRender={true}
                   width="100%"
                   height="10px"
                   customLabel=" "
