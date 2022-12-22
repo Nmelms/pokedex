@@ -14,6 +14,14 @@ export default function Details({ data, setView }) {
   const [text, setText] = useState("");
   const [color, setColor] = useState("");
 
+  const appHeight = () =>
+    document.documentElement.style.setProperty(
+      "--app-height",
+      `${window.innerHeight}px`
+    );
+  window.addEventListener("resize", appHeight);
+  appHeight();
+
   useEffect(() => {
     fetch(`https://pokeapi.co/api/v2/pokemon-species/${data.data.id}/`)
       .then((res) => res.json())
@@ -38,7 +46,7 @@ export default function Details({ data, setView }) {
       className="details container-fluid"
     >
       <div
-        style={{ height: "30%", minHeight: "225px" }}
+        style={{ height: "30%", minHeight: "200px" }}
         className="row d-flex flex-column align-items-center "
       >
         <nav className="col-12 d-flex px-4 pt-4 detailsNav align-items-center">
@@ -57,7 +65,7 @@ export default function Details({ data, setView }) {
         <Pokeball className="detailsBall" />
       </div>
       <div className="row m-2 mb-2 rounded  bg-white detailsBottom position-relative ">
-        <div className="details-bottom-wrapper">
+        <div className="details-bottom-wrapper d-flex flex-column justify-content-between">
           <div className="col-12  d-flex flex-column align-items-center justify-content-between">
             <img
               className="details-image"
@@ -88,16 +96,21 @@ export default function Details({ data, setView }) {
             </nav>
             <div className="row w-100 mb-3">
               <div
-                className="d-flex details-item flex-column align-items-center col-4 p-0 justify-content-between"
+                className="d-flex details-item flex-column align-items-center col-4 p-0 justify-content-between text-center"
                 style={{ color: "black" }}
               >
-                <div>
+                <div className="d-flex align-items-center">
                   <FontAwesomeIcon
-                    className="pe-1 details-back-btn"
+                    className="pe-1"
                     icon={faWeightScale}
                     size="2xl"
                   />
-                  {data.data.weight / 10 + " kg"}
+                  <h5
+                    className="h-100 m-0 d-flex align-items-center"
+                    style={{ fontSize: "1rem" }}
+                  >
+                    {data.data.weight / 10 + " kg"}
+                  </h5>
                 </div>
 
                 <p>Weight</p>
@@ -106,13 +119,18 @@ export default function Details({ data, setView }) {
                 className="middle-item d-flex details-item flex-column align-items-center col-4 justify-content-between"
                 style={{ color: "black" }}
               >
-                <div>
+                <div className="d-flex align-items-center">
                   <FontAwesomeIcon
                     className="pe-1"
                     icon={faRulerVertical}
                     size="2xl"
                   />
-                  {data.data.height / 10 + " m"}
+                  <h5
+                    className="h-100 m-0 d-flex align-items-center"
+                    style={{ fontSize: "1rem" }}
+                  >
+                    {data.data.height / 10 + " m"}
+                  </h5>
                 </div>
 
                 <p>Height</p>
@@ -126,7 +144,7 @@ export default function Details({ data, setView }) {
                     return (
                       <h5
                         key={idx}
-                        style={{ fontSize: "1rem", textAlign: "center" }}
+                        style={{ fontSize: ".8rem", textAlign: "center" }}
                         className="m-0"
                       >
                         {capitalizeFirstLetter(move.ability.name)}
@@ -140,7 +158,7 @@ export default function Details({ data, setView }) {
             <p className="flavor-text">{text}</p>
           </div>
 
-          <div className="details-stats col-12 d-flex flex-wrap">
+          <div className="details-stats col-12 d-flex flex-wrap mb-4">
             <h3 className="bold col-12 text-center" style={{ color: color }}>
               Base Stats
             </h3>

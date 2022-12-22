@@ -4,10 +4,12 @@
 * {
   box-sizing: border-box;
 }
-
 .App-logo {
   height: 40vmin;
   pointer-events: none;
+}
+:root {
+  --app-height: 100vh;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -67,8 +69,11 @@ ul {
   margin: 0 auto;
 }
 .pokemonList {
+  max-width: 100vw;
+  position: relative;
   display: flex;
   flex-wrap: wrap;
+  overflow-x: hidden;
 }
 .pokemon {
   display: flex;
@@ -140,7 +145,8 @@ ul {
   font-size: 1.25rem;
 }
 .detailsBottom {
-  min-height: 68vh;
+  min-height: 68%;
+  height: fit-content;
 }
 .detailsNav {
   height: fit-content;
@@ -148,12 +154,13 @@ ul {
 }
 .details {
   overflow: auto;
-  height: 100vh;
-  max-height: 100vh;
+  height: var(--app-height);
+  max-height: var(--app-height);
 }
 .flavor-text {
+  text-align: center;
   margin-top: 0.5rem;
-  font-size: 1rem;
+  font-size: 0.8rem;
 }
 .detailsBall {
   width: 70%;
@@ -167,6 +174,7 @@ ul {
   fill: rgba(255, 255, 255, 0.2);
 }
 .details-bottom-wrapper {
+  position: relative;
   max-width: 800px;
   margin: 0 auto;
 }
@@ -204,6 +212,9 @@ ul {
   border-right: 1px solid gray;
 }
 .details-stats {
+  justify-self: flex-end;
+  position: relative;
+  bottom: 0;
   margin-bottom: 1rem;
   max-height: 300px;
   height: 40%;

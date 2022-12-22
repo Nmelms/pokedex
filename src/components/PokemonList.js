@@ -28,7 +28,7 @@ export default function PokemonList({
     }
   }, [search, pokemons]);
   return (
-    <div className="pokemonList ">
+    <div className="pokemonList">
       <Pokeball className="pokeball-bg" />
       <nav>
         <ul className="d-flex justify-content-between mt-5 pl-0 px-4 vw-100">
