@@ -160,7 +160,7 @@ ul {
 .flavor-text {
   text-align: center;
   margin-top: 0.5rem;
-  font-size: 0.8rem;
+  font-size: clamp(0.8rem, 4vw, 25px);
 }
 .detailsBall {
   width: 70%;
