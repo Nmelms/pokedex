@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Pokemon from "./Pokemon.js";
 import { ReactComponent as Pokeball } from "../assets/Pokeball.svg";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowLeft, faBars } from "@fortawesome/free-solid-svg-icons";
 import capitalizeFirstletter from "../utils/capitalizeFirstletter.js";
 
 export default function PokemonList({
@@ -30,20 +28,6 @@ export default function PokemonList({
   return (
     <div className="pokemonList">
       <Pokeball className="pokeball-bg" />
-      <nav>
-        <ul className="d-flex justify-content-between mt-5 pl-0 px-4 vw-100">
-          <li>
-            <button className="iconBtn hover" aria-label="back">
-              <FontAwesomeIcon size="2xl" icon={faArrowLeft} />
-            </button>
-          </li>
-          <li>
-            <button className="iconBtn" aria-label="menu">
-              <FontAwesomeIcon size="2xl" icon={faBars} />
-            </button>
-          </li>
-        </ul>
-      </nav>
       <div className="d-flex flex-column col-12 align-items-center">
         <h1 className="title co-12 ">PokeDex </h1>
         <input
